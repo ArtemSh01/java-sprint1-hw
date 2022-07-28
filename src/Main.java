@@ -25,22 +25,22 @@ public class Main {
             if (command == 1) {   // Ввести количество шагов за определённый день;
 
                 System.out.println("--Ввести количество шагов за определённый день--");
-                System.out.println("Ввдите месяц:");
+                System.out.println("Введите месяц:");
 
                 month = scanner.nextInt();
-                if (month >= 0 && month <= 11) {
+                if ((month >= 1) && (month <= 12)) {
                     System.out.println("Введите день:");
                     day = scanner.nextInt();
 
-                    if (day >= 0 && day <= 29) {
+                    if ((day >= 1) && (day <= 30)) {
                         System.out.println("Введите количество шагов:");
                         steps = scanner.nextInt();
                         } else {
-                        System.out.println("Неврное значение! (Введите число от 0 до 29)");
+                        System.out.println("Неврное значение! (Введите число от 1 до 30)");
                         continue;
                     }
                 } else {
-                    System.out.println("Неврное значение! (Введите число от 0 до 11)");
+                    System.out.println("Неверное значение! (Введите число от 1 до 12)");
                     continue;
                 }
 
@@ -54,7 +54,11 @@ public class Main {
 
             } else if (command == 2) {
                 // Напечатать статистику за определённый месяц;
-                System.out.println("Выбранно - Напечатать статистику за определённый месяц");
+                System.out.println("Выбранно - Напечатать статистику за определённый месяц. \n" +
+                        "Введите номер месяца: ");
+                int monthStat = scanner.nextInt();
+                stepTracker.stepStats(monthStat);
+
             } else if (command == 3) {
                 // Изменить цель по количеству шагов в день;
                 System.out.println("Выбранно - Изменить цель по количеству шагов в день");
