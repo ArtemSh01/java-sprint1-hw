@@ -29,6 +29,7 @@ public class StepTracker {
         int sum = 0;
         int maxValue = 0;
         int counter = 0;
+
         for (int j = 0; j < MonthData[neededMonth].length; j++){
             System.out.println("День " + (j + 1) + ": Пройдено шагов: " + MonthData[neededMonth-1][j]);
             sum += MonthData[neededMonth-1][j];
@@ -39,8 +40,12 @@ public class StepTracker {
                 ++counter;
             }
         }
+
+
         System.out.println("Сумма шагов за месяц: " + sum);
         System.out.println("Максимальное кол-во шагов за месяц: " + maxValue);
         System.out.println("Среднее кол-во шагов: " + (sum / counter));
+        System.out.println("Пройденная дистанция: "+(((double)sum*75)/100000)+"км.");
+        System.out.println("Количество сожжённых килокалорий: "+ ((sum*50)/1000));
     }
 }
