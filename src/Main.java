@@ -34,6 +34,7 @@ public class Main {
         printMenu();
         int command = scanner.nextInt();
         StepTracker stepTracker = new StepTracker();
+
         int month;
         int day;
         int steps;
@@ -43,7 +44,6 @@ public class Main {
 
             if (command == 1) {   // Ввести количество шагов за определённый день;
 
-                System.out.println("--Ввести количество шагов за определённый день--");
                 System.out.println("Ввдите месяц:");
                     month = scanner.nextInt();
 
@@ -73,12 +73,15 @@ public class Main {
 
             } else if (command == 2) {
                 // Напечатать статистику за определённый месяц;
-                System.out.println("Выбранно - Напечатать статистику за определённый месяц");
+
                 System.out.println("Введите номер месяца:");
                 monthStat = scanner.nextInt();
 
+                System.out.println("\nСтатистика за "+ monthStat +" месяц");
                 if (monthStat >= 1 && monthStat <= 12){
+
                      stepTracker.stepStats(monthStat);
+
                 }else {
                     System.out.println("Некоректный ввод, введите от 1 до 12");
                     continue;
