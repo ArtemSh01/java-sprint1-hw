@@ -4,8 +4,9 @@ public class StepTracker {
 
     int[][] MonthData = new int[12][30];
 
+
     public StepTracker() { // Заполнение массива
-        for (int[] monthDatum : MonthData) Arrays.fill(monthDatum, 10000);
+        for (int[] monthDatum : MonthData) Arrays.fill(monthDatum, 0);
     }
 
 
@@ -19,7 +20,12 @@ public class StepTracker {
         }
     }
 
-    public void stepStats(int neededMonth ) {
+    public void goalStat(){
+
+    }
+
+
+    public void stepStats(int neededMonth) {
         int sum = 0;
         int maxValue = 0;
         int counter = 0;
@@ -41,6 +47,6 @@ public class StepTracker {
         System.out.println("-Максимальное количество за месяц: " + maxValue+ " шагов");
         System.out.println("-Среднее количество: " + (sum / counter)+ " шагов");
         converter.stepStatsTwo(sum);
-
     }
+
 }

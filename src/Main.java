@@ -90,6 +90,8 @@ public class Main {
             } else if (command == 3) {
                 // Изменить цель по количеству шагов в день;
                 System.out.println("Выбранно - Изменить цель по количеству шагов в день");
+                System.out.println("Статус цели - "+);
+                stepTracker.
             } else {
                 System.out.println("Такого действия нет!");
             }
