@@ -12,19 +12,15 @@ public class Main {
         int day;
         int steps;
         int monthStat;
-        int goal = 10000;
 
         while (command != 0) {
 
-            if (command == 1) {   // Ввести количество шагов за определённый день;
-
+            if (command == 1) {
                 System.out.println("Введите месяц:");
                 month = scanner.nextInt();
-
                 if (month >= 1 && month <= 12) {
                     System.out.println("Введите день:");
                     day = scanner.nextInt();
-
                     if (day >= 1 && day <= 30) {
                         System.out.println("Введите количество шагов:");
                         steps = scanner.nextInt();
@@ -46,29 +42,26 @@ public class Main {
                 }
 
             } else if (command == 2) {
-                // Напечатать статистику за определённый месяц;
-
                 System.out.println("Введите номер месяца:");
                 monthStat = scanner.nextInt();
-
                 System.out.println("\nСтатистика за "+ monthStat +" месяц");
                 if (monthStat >= 1 && monthStat <= 12){
-                    stepTracker.stepStats(goal, monthStat);
+                    stepTracker.stepStats(stepTracker.goal, monthStat);
                 }else {
                     System.out.println("Некоректный ввод, введите от 1 до 12");
                     continue;
                 }
 
             } else if (command == 3) {
-                // Изменить цель по количеству шагов в день;
                 System.out.println("Выбранно - Изменить цель по количеству шагов в день");
-                stepTracker.goalStat(goal);
+                System.out.println("Актуальная цель - " + stepTracker.goal);
+                stepTracker.goalStat();
+
             } else {
                 System.out.println("Такого действия нет!");
             }
-
-            printMenu(); // печатаем меню ещё раз перед завершением предыдущего действия
-            command = scanner.nextInt(); // повторное считывание данных от пользователя
+            printMenu();
+            command = scanner.nextInt();
         }
         System.out.println("Программа завершена");
     }
