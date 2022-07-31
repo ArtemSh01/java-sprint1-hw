@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class StepTracker {
 
     int[][] MonthData = new int[12][30];
-    public StepTracker() { // Заполнение массива
+    int goal = 10000;
+
+    public StepTracker() {
         for (int[] monthDatum : MonthData) Arrays.fill(monthDatum, 0);
     }
-
     boolean addSteps(int[][] MonthData, int month, int day, int steps) {
         if (MonthData[month-1][day-1] != 0){
             return false;
@@ -18,26 +19,21 @@ public class StepTracker {
         }
     }
 
-    public void goalStat(int goal) {
+    public int goalStat() {
         Scanner scanner = new Scanner(System.in);
-        int yesNo;
-        System.out.println("Статус цели - " + goal);
-        System.out.println("Хотите изменить цель? \n1-Да \n2-Нет");
-        yesNo = scanner.nextInt();
-        if (yesNo == 1) {
-            System.out.println("Введите количество шагов:");
-            goal = scanner.nextInt();
-            if (goal > 0){
-                System.out.println("Цель обновлена - " + goal);
-            }
-            else {
-                System.out.println("Введено некорректное значение!");
-            }
+
+        System.out.println("Введите количество шагов:");
+        goal = scanner.nextInt();
+        if (goal > 0){
+            System.out.println("Цель обновлена - " + goal);
+            return goal;
         }
         else {
-            System.out.println("Отмена операции.");
+            System.out.println("Введено некорректное значение! Цель не изменена.");
+            return 10000;
         }
     }
+
 
     public void stepStats(int goal, int neededMonth) {
         int sum = 0;
