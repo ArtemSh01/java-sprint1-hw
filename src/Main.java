@@ -34,7 +34,7 @@ public class Main {
                     continue;
                 }
 
-                boolean isSuccess = stepTracker.addSteps(stepTracker.MonthData, month, day, steps);
+                boolean isSuccess = stepTracker.addSteps(month, day, steps);
                 if (isSuccess) {
                     System.out.println("Шаги записаны!");
                 } else {
@@ -53,9 +53,12 @@ public class Main {
                 }
 
             } else if (command == 3) {
+
                 System.out.println("Выбранно - Изменить цель по количеству шагов в день");
                 System.out.println("Актуальная цель - " + stepTracker.goal);
-                stepTracker.goalStat();
+                System.out.println("Введите количество шагов:");
+                int result = scanner.nextInt();
+                stepTracker.goal = stepTracker.goalStat(result);
 
             } else {
                 System.out.println("Такого действия нет!");
