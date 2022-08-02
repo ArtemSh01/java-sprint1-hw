@@ -1,7 +1,8 @@
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class StepTracker {
+
+    Converter converter = new Converter();
 
     int[][] MonthData = new int[12][30];
     int goal = 10000;
@@ -9,7 +10,7 @@ public class StepTracker {
     public StepTracker() {
         for (int[] monthDatum : MonthData) Arrays.fill(monthDatum, 0);
     }
-    boolean addSteps(int[][] MonthData, int month, int day, int steps) {
+    public boolean addSteps(int month, int day, int steps) {
         if (MonthData[month-1][day-1] != 0){
             return false;
         }
@@ -19,11 +20,8 @@ public class StepTracker {
         }
     }
 
-    public int goalStat() {
-        Scanner scanner = new Scanner(System.in);
+    public int goalStat(int goal) {
 
-        System.out.println("Введите количество шагов:");
-        goal = scanner.nextInt();
         if (goal > 0){
             System.out.println("Цель обновлена - " + goal);
             return goal;
@@ -39,7 +37,7 @@ public class StepTracker {
         int sum = 0;
         int maxValue = 0;
         int counter = 0;
-        Converter converter = new Converter();
+
 
         for (int j = 0; j < MonthData[neededMonth].length; j++){
             System.out.println((j + 1)+" день: "+ MonthData[neededMonth-1][j]+ " шагов");
